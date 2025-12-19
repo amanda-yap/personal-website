@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f0ec;
+  --background: #f3f3f3;
   --foreground: #171717;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-source-code-pro: 'Source Code Pro', monospace;
+  --font-scp: 'Source Code Pro', monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-source-code-pro);
+  font-family: var(--font-scp);
 }
