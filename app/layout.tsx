@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Source_Code_Pro } from "next/font/google";
+import { Source_Code_Pro, Lora } from "next/font/google";
 import { Gradient } from "./components/gradient";
 import { Navbar } from "./components/nav";
 import { Footer } from "./components/footer";
@@ -7,7 +7,14 @@ import "./globals.css";
 
 const sourceCodePro = Source_Code_Pro({
   variable: "--font-scp",
-  weight: ["400", "500", "600", "700"]
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"]
+});
+
+const lora = Lora({
+  variable: "--font-lora",
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"]
 });
 
 export const metadata: Metadata = {

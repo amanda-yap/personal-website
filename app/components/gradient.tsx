@@ -6,7 +6,7 @@ export function Gradient() {
     </div>
     */
     <div className="relative w-full">
-      <div className="absolute w-full h-25 blur-3xl opacity-50 top-0 bg-gradient-to-r from-amber-500 via-amber-300 to-yellow-200"/>
+      <div className="absolute w-full h-50 blur-3xl opacity-35 top-0 bg-gradient-to-r from-amber-400 via-rose-200 to-rose-100"/>
     </div>
   );
 }
