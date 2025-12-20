@@ -6,13 +6,9 @@ import Image from "next/image";
 const images: string[] = [
   "/images/image1.JPG",
   "/images/image2.JPG",
-  "/images/image3.JPG",
   "/images/image4.JPG",
   "/images/image6.JPG",
   "/images/image7.JPG",
-  "/images/image8.JPG",
-  "/images/image9.JPG",
-  "/images/image11.JPG",
   "/images/image17.JPG",
   "/images/image24.JPG",
   "/images/image25.JPG",
