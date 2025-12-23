@@ -32,7 +32,7 @@ export function Navbar() {
     <>
 	<button
 		onClick={() => setOpen(true)}
-		className="lg:hidden relative mt-1 ml-auto text-neutral-700 text-2xl cursor-pointer"
+		className="lg:hidden relative mt-1 ml-auto text-neutral-700 text-3xl cursor-pointer"
 		aria-label="Open navigation"
 	>
 		☰
@@ -47,7 +47,7 @@ export function Navbar() {
 	/>
 		<aside
 			className={`
-				fixed top-0 right-0 h-full w-64 bg-white z-50
+				fixed top-0 right-0 h-full w-64 bg-gray-50 z-50
 				transform transition-transform duration-300 ease-in-out
 				${open ? "translate-x-0" : "translate-x-full"}
 				lg:static lg:translate-x-0 lg:w-auto lg:h-auto lg:bg-transparent
