@@ -1,8 +1,8 @@
-export default function Blog() {
+export default function Yaps() {
     return (
         <section>
           <p className="mb-4">
-            Blog
+            Yaps
           </p>
         </section>
     )

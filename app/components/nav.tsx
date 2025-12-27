@@ -8,11 +8,8 @@ const navItems = {
   '/': {
     name: 'home',
   },
-  '/books': {
-    name: 'books',
-  },
-  '/movies': {
-    name: 'movies',
+  '/yaps': {
+    name: 'yaps',
   },
   '/music': {
     name: 'music',
