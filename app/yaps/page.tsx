@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { getAllYaps } from "@/lib/yaps";
-import { YapType } from "@/types/yap"
 
 export default function Yaps() {
 	const yaps = getAllYaps();
@@ -10,7 +9,7 @@ export default function Yaps() {
 		<h1 className="text-3xl font-semibold mb-10">yaps</h1>
 
 		<ul className="space-y-4">
-			{yaps.map((yap: YapType) => (
+			{yaps.map((yap) => (
 				<li key={yap.slug}>
 					<Link
 						href={`/yaps/${yap.slug}`}

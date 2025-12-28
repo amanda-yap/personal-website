@@ -1,5 +1,4 @@
 import { getYapBySlug, getAllYaps } from "@/lib/yaps";
-import { YapType } from "@/types/yap"
 
 type Props = {
 	params: Promise<{ slug: string }>;
@@ -8,7 +7,7 @@ type Props = {
 export async function generateStaticParams() {
 	const yaps = getAllYaps();
 
-	return yaps.map((yap: YapType) => ({
+	return yaps.map((yap) => ({
 		slug: yap.slug,
 	}));
 }
