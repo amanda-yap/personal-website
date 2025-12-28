@@ -7,7 +7,7 @@ This is my personal website, which has the following features:
 
 It is a continuous work in progress!
 
-You can view my website on [amandasphotos.vercel.app]()
+You can view my website on [amandasphotos.vercel.app](amandasphotos.vercel.app)
 
 To run the app locally on your device, clone the repo and install the following dependencies:
 
