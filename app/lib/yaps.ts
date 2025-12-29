@@ -22,6 +22,15 @@ export function getAllYaps() {
 			title: data.title,
 			date: data.date,
 		};
+	})
+	// Sort by date (convert to ISO date format then sort)
+	.sort((a, b) => {
+		const toISO = (d: string) => {
+			const [day, month, year] = d.split("-");
+			return `${year}-${month}-${day}`;
+		};
+
+		return toISO(b.date).localeCompare(toISO(a.date));
 	});
 }
 
