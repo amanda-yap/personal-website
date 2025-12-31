@@ -6,18 +6,18 @@ export default function Yaps() {
 
 	return (
 		<main>
-		<h1 className="text-3xl font-semibold mb-10">yaps</h1>
+		<h1 className="text-3xl font-semibold text-stone-900 mb-10">yaps</h1>
 
 		<ul className="space-y-4">
 			{yaps.map((yap) => (
-				<li key={yap.slug} className="border-l-2 border-orange-950 pl-2">
+				<li key={yap.slug} className="border-l-2 border-stone-900 pl-2.5">
 					<Link
 						href={`/yaps/${yap.slug}`}
-						className="relative text-md text-semibold text-orange-950 hover:underline"
+						className="relative text-md text-semibold text-yellow-900 underline"
 					>
 						{yap.title}
 					</Link>
-					<p className="text-sm text-gray-500">{yap.date}</p>
+					<p className="text-sm text-stone-600 italic">{yap.date}</p>
 				</li>
 			))}
 		</ul>

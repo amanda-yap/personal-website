@@ -46,7 +46,7 @@ export async function getYapBySlug(slug: string) {
 	const { data, content } = matter(fileContents);
 
 	const processedContent = await remark()
-		.use(html)
+		.use(html)             // md to html and sanitize
 		.process(content);
 
 	return {

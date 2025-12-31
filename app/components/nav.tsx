@@ -10,13 +10,13 @@ const navItems = {
   },
   '/yaps': {
     name: 'yaps',
-  },
+  }/*,
   '/music': {
     name: 'music',
   },
   '/projects': {
     name: 'projects',
-  }
+  }*/
 }
 
 export function Navbar() {
@@ -26,7 +26,7 @@ export function Navbar() {
     <>
 	<button
 		onClick={() => setOpen(true)}
-		className="lg:hidden relative mt-1 ml-auto text-neutral-700 text-3xl cursor-pointer"
+		className="lg:hidden relative mt-1 ml-auto text-stone-900 text-3xl cursor-pointer"
 		aria-label="Open navigation"
 	>
 		☰
@@ -53,7 +53,7 @@ export function Navbar() {
 					<div className="flex flex-col lg:flex-row flex-wrap lg:ml-0">
 						<button
 							onClick={() => setOpen(false)}
-							className="lg:hidden text-neutral-700 cursor-pointer ml-auto text-2xl"
+							className="lg:hidden text-stone-900 cursor-pointer ml-auto text-2xl"
 						>
 							✕
 						</button>
@@ -62,7 +62,7 @@ export function Navbar() {
 							key={path}
 							href={path}
 							onClick={() => setOpen(false)}
-							className="transition-all hover:text-neutral-800 py-2 px-3 m-1"
+							className="transition-all text-stone-900 py-2 px-3 m-1"
 						>
 							{name}
 						</Link>

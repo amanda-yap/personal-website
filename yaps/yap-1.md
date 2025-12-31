@@ -1,6 +1,5 @@
 ---
-title: "First Yap"
-date: "27-12-2025"
+title: "intro"
+date: "31-12-2025"
 ---
 
-This is my first yap :D

@@ -1,6 +1,5 @@
 ---
-title: "Second Yap"
-date: "29-12-2025"
+title: "happy new year"
+date: "01-01-2026"
 ---
 
-This is my second yap :D

@@ -18,10 +18,11 @@ export default async function Yap({ params }: Props) {
 
 	return (
 		<main>
-		<h1 className="text-2xl font-semibold mb-2">{yap.title}</h1>
-		<p className=" text-md text-gray-600 mb-6">{yap.date}</p>
+		<h1 className="text-2xl font-semibold text-stone-900 mb-2">{yap.title}</h1>
+		<p className=" text-md text-stone-600 mb-6">{yap.date}</p>
 
 		<article
+			className="prose"
 			dangerouslySetInnerHTML={{ __html: yap.content }}
 		/>
 		</main>
