@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
+
+---
+
+<Layout>
+	<h1>Blog</h1>
+    {allPosts.map((post: any) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
+</Layout>
