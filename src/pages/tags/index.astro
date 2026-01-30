@@ -1,17 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Tags from '../../components/Tags.astro';
 const allPosts = Object.values(import.meta.glob('../posts/*.md', { eager: true }));
 const tags = [...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat())];
 const pageTitle = "tags";
 ---
 
 <Layout pageTitle={pageTitle}>
-    <div class="flex gap-2">
-        {tags.map((tag) => 
-        <a href={`/tags/${tag}`}
-            class="bg-teal-950 rounded-lg px-2 py-1 cursor-pointer hover:scale-103 transition ease-in-out duration-200">
-            {tag}
-        </a>
-        )}
-    </div>
+    <p class="mb-4">Click on a tag to see their posts!</p>
+    <Tags tags={tags}/>
 </Layout>
