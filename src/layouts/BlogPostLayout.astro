@@ -7,7 +7,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout pageTitle={frontmatter.title}>
-    <div class="mb-8 flex-column gap-4 justify-between items-center">
+    <div class="mb-8 flex flex-col gap-2">
         <p class="text-sm">{frontmatter.pubDate}</p>
         <Tags tags = {frontmatter.tags}/>
     </div>
