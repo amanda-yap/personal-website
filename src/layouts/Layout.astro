@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+const { pageTitle } = Astro.props;
 ---
 
 <!doctype html>
@@ -13,10 +14,29 @@ import Footer from '../components/Footer.astro';
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>amanda yap</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 	</head>
-	<body>
+
+	<body class="max-w-2xl mx-4 mt-10 lg:mx-auto">
+		
 		<Navigation />
-		<slot />
+		<main
+			id="page"
+			class="opacity-0 translate-y-2 transition-all duration-800 ease"
+			>
+			<h1 class="text-4xl mb-10">{pageTitle}</h1>
+			<slot />
+		</main>
 		<Footer />
+
+
+		<script>
+			window.addEventListener('load', () => {
+			document.getElementById('page')
+				?.classList.remove('opacity-0', 'translate-y-2')
+			})
+		</script>
 	</body>
 </html>

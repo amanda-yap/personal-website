@@ -1,10 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
-
+const pageTitle = "blog";
 ---
 
-<Layout>
-	<h1>Blog</h1>
-    {allPosts.map((post: any) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
+<Layout pageTitle={pageTitle}>
+    <ul class="list-none divide-y divide-teal-800">
+        {allPosts.map((post: any) => <li class="p-4 hover:bg-teal-950 transition-colors ease-in-out duration-300"><a href={post.url}>{post.frontmatter.title}</a></li>)}
+    </ul>
+    
 </Layout>

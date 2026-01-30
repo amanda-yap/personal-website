@@ -2,9 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 const allPosts = Object.values(import.meta.glob('../posts/*.md', { eager: true }));
 const tags = [...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat())];
+const pageTitle = "tags";
 ---
 
-<Layout>
-    <h2>Tags</h2>
+<Layout pageTitle={pageTitle}>
     <div>{tags.map((tag) => <p><a href={`/tags/${tag}`}>{tag}</a></p>)}</div>
 </Layout>
