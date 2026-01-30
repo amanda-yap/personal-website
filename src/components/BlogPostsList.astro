@@ -1,0 +1,12 @@
+---
+const { posts } = Astro.props;
+---
+
+{posts.map((post: any) => 
+    <a href={post.url} class="block">
+        <div class="p-4 flex justify-between hover:bg-teal-950 transition-colors ease-in-out duration-300">
+            <span>{post.frontmatter.title}</span>
+            <p class="text-sm text-teal-700">{post.frontmatter.pubDate}</p>
+        </div>
+    </a>
+    )}

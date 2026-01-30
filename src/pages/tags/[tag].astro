@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import BlogPostsList from '../../components/BlogPostsList.astro'
 
 export async function getStaticPaths() {
   const allPosts = Object.values(import.meta.glob('../posts/*.md', { eager: true }));
@@ -19,7 +20,5 @@ const { posts } = Astro.props;
 const filteredPosts = posts.filter((post: any) => post.frontmatter.tags?.includes(tag));
 ---
 <Layout pageTitle={tag}>
-    <ul>
-        {filteredPosts.map((post: any) => <li><a class="underline" href={post.url}>{post.frontmatter.title}</a></li>)}
-    </ul>
+    <BlogPostsList posts={filteredPosts}/>
 </Layout>
