@@ -2,8 +2,8 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-    --bg-color: #160602;
-    --font-color: #b9a583;
+    --bg-color: #040D12;
+    --font-color: #98b8ac;
     --font-line-seed: "LINE Seed JP", sans-serif;
 }
 
