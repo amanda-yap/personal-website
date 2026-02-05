@@ -5,7 +5,7 @@ date: "05/02/2026"
 tags: ["reflection"]
 ---
 
-It has taken me *six days* to write this first blog post. I kept thinking about what I should write about and how I was going to write it, and just ended up spending six days writing nothing at all. 
+It has taken me *six days* to write this first blog post. I kept thinking about what I should write and how I was going to write it, and just ended up spending six days writing nothing at all. 
 
 I found that I have this habit of almost starting things, where I think about the things I want to create and learn, but rarely do I actually start creating and learning.
 
@@ -15,11 +15,11 @@ So, why is it so hard for me to start something, and how can I break this habit?
 
 When I start something new, I often have high expectations for the outcome. I feel that I can't start doing something if I am not good at it, but I can't become good at something without starting. 
 
-My brain knows that starting something new will take time and be difficult; it fears the upcoming obstacles that I have yet to even face.
+My brain knows that starting something new will be difficult and take time; it fears the upcoming obstacles that I have yet to even face.
 
 What if I waste my time? What if I waste my energy? *What if I put in the time and effort, but I still don't achieve what I want?* 
 
-Those questions are scary enough for my brain to decide, "Okay, let's just not do it then", or, "Let's start when you're more ready". Then, I research and prepare. I wait and wait for the perfect moment when I am finally "ready", but it never comes.
+Those questions are scary enough for my brain to decide, "Okay, let's just not do it then", or, "Let's start when you're more ready". Then, I research and prepare. I wait and wait for the perfect moment when I am finally "ready", but the moment never comes.
 
 ## how to start
 
@@ -29,7 +29,6 @@ Those questions are scary enough for my brain to decide, "Okay, let's just not d
 
 3. Practice. To get better at anything, you need to practise. Practise starting new things. Practise getting over that mental barrier between plan and action. To break a habit, you have to practise a new one.
 
-4. Reduce your fear of failure. Failure is often self-imposed and subjective. Simply, it is the lack of success, which is again, subjective, based on your personal goals and values. I would consider not starting at all to be more of a "failure" than starting but not achieving what was aimed for. At least something was started, and surely, something was learned along the way.
-
+4. Reduce your fear of failure. Failure is often self-imposed and subjective - it is the lack of success, which is again, subjective, based on your personal goals and values. I would consider not starting at all to be more of a "failure" than starting and not achieving what was aimed for. At least something was started, and surely, something was learned along the way.
 
 It took me six days to start writing this blog post, but only half an hour actually writing it. Moving forward, I hope to break my habit of almost starting :)
