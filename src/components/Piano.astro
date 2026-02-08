@@ -1,0 +1,93 @@
+
+<svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg" class="lg:w-3/5">
+    <!-- body -->
+    <rect x="20" y="40" width="320" height="140" rx="18" fill="#b4c3a4"/>
+
+    <!-- top -->
+    <rect x="20" y="40" width="320" height="25" rx="10" fill="#9dae8a"/>
+
+    <!-- white keys when clicked + gap between keys -->
+    <rect x="40" y="80" width="278" height="80" fill="#c3c9c4"/>
+
+    <!-- white keys -->
+    <g fill="#f3f3ed">
+        <rect x="40"  y="80" width="38" height="80" data-note="C4" class="white-key cursor-pointer"/>
+        <rect x="80"  y="80" width="38" height="80" data-note="D4" class="white-key cursor-pointer"/>
+        <rect x="120" y="80" width="38" height="80" data-note="E4" class="white-key cursor-pointer"/>
+        <rect x="160" y="80" width="38" height="80" data-note="F4" class="white-key cursor-pointer"/>
+        <rect x="200" y="80" width="38" height="80" data-note="G4" class="white-key cursor-pointer"/>
+        <rect x="240" y="80" width="38" height="80" data-note="A4" class="white-key cursor-pointer"/>
+        <rect x="280" y="80" width="38" height="80" data-note="B4" class="white-key cursor-pointer"/>
+    </g>
+
+    <!-- black keys when clicked -->
+    <g fill="#1f3327">
+        <rect x="70"  y="78" width="20" height="50" rx="3" data-note="C#4" class="black-key cursor-pointer"/>
+        <rect x="110" y="78" width="20" height="50" rx="3" data-note="D#4" class="black-key cursor-pointer"/>
+        <rect x="190" y="78" width="20" height="50" rx="3" data-note="F#4" class="black-key cursor-pointer"/>
+        <rect x="230" y="78" width="20" height="50" rx="3" data-note="G#4" class="black-key cursor-pointer"/>
+        <rect x="270" y="78" width="20" height="50" rx="3" data-note="A#4" class="black-key cursor-pointer"/>
+    </g>
+
+    <!-- black keys -->
+    <g fill="#566f52">
+        <rect x="70"  y="78" width="20" height="50" rx="3" data-note="C#4" class="black-key cursor-pointer"/>
+        <rect x="110" y="78" width="20" height="50" rx="3" data-note="D#4" class="black-key cursor-pointer"/>
+        <rect x="190" y="78" width="20" height="50" rx="3" data-note="F#4" class="black-key cursor-pointer"/>
+        <rect x="230" y="78" width="20" height="50" rx="3" data-note="G#4" class="black-key cursor-pointer"/>
+        <rect x="270" y="78" width="20" height="50" rx="3" data-note="A#4" class="black-key cursor-pointer"/>
+    </g>
+</svg>
+
+
+<script>
+    const keys = document.querySelectorAll('.white-key, .black-key');
+
+    const notes = {
+        'C4': 261.63,
+        'C#4': 277.18,
+        'D4': 293.66,
+        'D#4': 311.13,
+        'E4': 329.63,
+        'F4': 349.23,
+        'F#4': 369.99,
+        'G4': 392.00,
+        'G#4': 415.30,
+        'A4': 440.00,
+        'A#4': 466.16,
+        'B4': 493.88
+    };
+
+    const audioContext = new AudioContext();
+
+    function playTone(frequency, duration = 0.6) {
+        if (!audioContext) {
+            return;
+        }
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+
+        oscillator.type = 'sine';
+        oscillator.frequency.value = frequency;
+
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+
+        oscillator.start();
+        oscillator.stop(audioContext.currentTime + duration);
+    }
+
+    keys.forEach(key => {
+        key.addEventListener('click', () => {
+        const note = key.getAttribute('data-note');
+        if (note) {
+            playTone(notes[note]);
+            key.classList.add('opacity-80');
+            setTimeout(() => key.classList.remove('opacity-80'), 150);
+        }
+        });
+    });
+</script>

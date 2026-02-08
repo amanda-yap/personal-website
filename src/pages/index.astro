@@ -1,12 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Piano from '../components/Piano.astro';
 const pageTitle = "amanda yap";
 ---
 
 <Layout pageTitle={pageTitle}>
-	<p>
-		Welcome to my website!
-		I like to code, play the piano, and yap - check out my 
-		<a href="/blog" class="underline decoration-lime-800 decoration-2">blog</a>.
-	</p>
+	<div class ="flex flex-col items-center gap-2">
+		<p>
+			Welcome to my website!
+			I like to code, play the piano, and yap - check out my 
+			<a href="/blog" class="underline decoration-lime-600/50 decoration-2">blog</a>.
+		</p>
+		<Piano />
+	</div>
+
+
 </Layout>
