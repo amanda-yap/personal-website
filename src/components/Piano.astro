@@ -60,7 +60,7 @@
 
     const audioContext = new AudioContext();
 
-    function playTone(frequency, duration = 0.6) {
+    function playTone(frequency, duration = 1) {
         if (!audioContext) {
             return;
         }
@@ -74,7 +74,8 @@
         oscillator.frequency.value = frequency;
 
         gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+            gainNode.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + 0.01);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
 
         oscillator.start();
         oscillator.stop(audioContext.currentTime + duration);
