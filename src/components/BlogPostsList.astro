@@ -4,12 +4,12 @@ const { posts } = Astro.props;
 
 {posts.map((post: any) => 
     <a href={post.url} class="block">
-        <div class="p-3 flex justify-between items-center hover:bg-teal-800/20 transition-colors ease-in-out duration-300">
+        <div class="p-3 flex justify-between items-center hover:bg-lime-800/10 transition-colors ease-in-out duration-300">
             <div>
                 <h3>{post.frontmatter.title}</h3>
-                <p class="text-sm text-teal-600/80">{post.frontmatter.date}</p>
+                <p class="text-sm text-lime-700">{post.frontmatter.date}</p>
             </div>
-            <p class="text-md text-teal-600/80">➜</p>
+            <p class="text-md text-lime-800">➜</p>
         </div>
     </a>
     )}
