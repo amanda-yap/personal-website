@@ -1,16 +1,16 @@
 
 <svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg" class="lg:w-3/5">
     <!-- body -->
-    <rect x="20" y="40" width="320" height="140" rx="18" fill="#b4c3a4"/>
+    <rect x="20" y="40" width="320" height="140" rx="18" fill="#B8C799"/>
 
     <!-- top -->
-    <rect x="20" y="40" width="320" height="25" rx="10" fill="#9dae8a"/>
+    <rect x="20" y="40" width="320" height="25" rx="10" fill="#9BAA7C"/>
 
     <!-- white keys when clicked + gap between keys -->
-    <rect x="40" y="80" width="278" height="80" fill="#c3c9c4"/>
+    <rect x="40" y="80" width="278" height="80" fill="#C3C9C4"/>
 
     <!-- white keys -->
-    <g fill="#f3f3ed">
+    <g fill="#F3F3ED">
         <rect x="40"  y="80" width="38" height="80" data-note="C4" class="white-key cursor-pointer"/>
         <rect x="80"  y="80" width="38" height="80" data-note="D4" class="white-key cursor-pointer"/>
         <rect x="120" y="80" width="38" height="80" data-note="E4" class="white-key cursor-pointer"/>
@@ -21,7 +21,7 @@
     </g>
 
     <!-- black keys when clicked -->
-    <g fill="#1f3327">
+    <g fill="#1F3327">
         <rect x="70"  y="78" width="20" height="50" rx="3" data-note="C#4" class="black-key cursor-pointer"/>
         <rect x="110" y="78" width="20" height="50" rx="3" data-note="D#4" class="black-key cursor-pointer"/>
         <rect x="190" y="78" width="20" height="50" rx="3" data-note="F#4" class="black-key cursor-pointer"/>
@@ -30,7 +30,7 @@
     </g>
 
     <!-- black keys -->
-    <g fill="#566f52">
+    <g fill="#596849">
         <rect x="70"  y="78" width="20" height="50" rx="3" data-note="C#4" class="black-key cursor-pointer"/>
         <rect x="110" y="78" width="20" height="50" rx="3" data-note="D#4" class="black-key cursor-pointer"/>
         <rect x="190" y="78" width="20" height="50" rx="3" data-note="F#4" class="black-key cursor-pointer"/>
@@ -74,7 +74,7 @@
         oscillator.frequency.value = frequency;
 
         gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-            gainNode.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + 0.01);
+        gainNode.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + 0.01);
         gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
 
         oscillator.start();
