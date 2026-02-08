@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
-title: "choosing what to optimise"
+title: "post 2"
 date: "05/02/2026"
-tags: ["reflection"]
+tags: ["coding"]
 ---
 
