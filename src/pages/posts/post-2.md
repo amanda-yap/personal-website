@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
 title: "cli dashboard"
-date: "05/02/2026"
+date: "2026-02-06"
 tags: ["coding"]
 ---
 

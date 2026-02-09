@@ -4,11 +4,13 @@ import Prose from '../components/Prose.astro';
 import Tags from '../components/Tags.astro';
 
 const { frontmatter } = Astro.props;
+const [ year, month, day ] = frontmatter.date.split("-");
+const formattedDate = `${day}/${month}/${year}`;
 ---
 
 <Layout pageTitle={frontmatter.title}>
     <div class="mb-8 flex flex-col gap-2">
-        <p class="text-sm">{frontmatter.date}</p>
+        <p class="text-sm">{formattedDate}</p>
         <Tags tags = {frontmatter.tags}/>
     </div>
     

@@ -3,8 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import BlogPostsList from '../components/BlogPostsList.astro'
 const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
 const pageTitle = "blog";
+const sortedPosts = allPosts.sort((a: any, b: any) => Date.parse(b.frontmatter.date) - Date.parse(a.frontmatter.date));
 ---
 
 <Layout pageTitle={pageTitle}>
-    <BlogPostsList posts={allPosts}/>
+    <BlogPostsList posts={sortedPosts}/>
 </Layout>
