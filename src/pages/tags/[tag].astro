@@ -6,7 +6,10 @@ export async function getStaticPaths() {
 	const allPosts = Object.values(import.meta.glob('../posts/*.md', { eager: true }));
 
 	return [
-		{params: {tag: "coding"}, props: {posts: allPosts}}
+		{params: {tag: "coding"}, props: {posts: allPosts}},
+		{params: {tag: "projects"}, props: {posts: allPosts}},
+		{params: {tag: "python"}, props: {posts: allPosts}},
+		{params: {tag: "C++"}, props: {posts: allPosts}},
 	];
 }
 
