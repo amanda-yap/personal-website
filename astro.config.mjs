@@ -10,8 +10,7 @@ export default defineConfig({
     },
     markdown: {
         shikiConfig: {
-            theme: 'everforest-dark',
-            wrap: true,
+            theme: 'everforest-dark'
         },
         rehypePlugins: [
             [
