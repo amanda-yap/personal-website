@@ -17,7 +17,7 @@ Match the Cat is in its early stages of development. I am currently making it us
 ## the rules of the game
 1. Swap adjacent cats to form lines of three or more of the same cats
 2. Cats can only be swapped if they form matched lines
-3. The game ends when there are no more potential moves
+3. The game ends when there are no potential moves
 
 ## to do
 Currently, I have implemented the swapping, matching, and clearing functionalities (in a very non-optimised manner). I aim to optimise these and work on the algorithm that figures out whether there are any potential moves or not. 

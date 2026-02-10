@@ -13,4 +13,4 @@ I used to post my photos on Instagram, but I no longer have Instagram, so I deci
 
 ![photos website](/images/photos-website.png)
 
-I made the website with Next.js, Typescript, TailwindCSS, and deployed it [here](https://amandasphotos.vercel.app) using Vercel. The technologies I used are a bit overkill for a simple website, but it was a great learning process for me as it was my first time making a website without using vanilla HTML, CSS, and Javascript. 
+I made the website with Next.js, Typescript, and TailwindCSS, and deployed it [here](https://amandasphotos.vercel.app) using Vercel. The technologies I used are a bit overkill for a simple website, but it was a great learning process as it was my first time making a website without using vanilla HTML, CSS, and Javascript. 

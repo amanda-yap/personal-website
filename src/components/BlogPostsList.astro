@@ -2,7 +2,7 @@
 const { posts } = Astro.props;
 const formatDate = (date: string) => {
     const [year, month, day] = date.split("-");
-    return `${day}/${month}/${year}`;
+    return `${day}/${month}/${year.substring(2)}`;
 };
 ---
 
