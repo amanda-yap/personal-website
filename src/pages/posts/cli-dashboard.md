@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPostLayout.astro
 title: "cli dashboard"
 date: "2026-01-15"
-tags: ["projects", "python"]
+tags: ["projects"]
 ---
 
 

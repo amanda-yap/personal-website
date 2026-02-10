@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPostLayout.astro
 title: "match the cat"
 date: "2026-02-06"
-tags: ["projects", "C++"]
+tags: ["projects"]
 ---
 
 
@@ -10,7 +10,7 @@ tags: ["projects", "C++"]
 
 I love cats and I grew up playing hardcore games like candy crush, so I wanted to see if I could combine the two.
 
-![dashboard](/images/cats.png)
+![match the cat board](/images/cats.png)
 
 Match the Cat is in its early stages of development. I am currently making it using C++ and SFML. 
 
@@ -18,8 +18,6 @@ Match the Cat is in its early stages of development. I am currently making it us
 1. Swap adjacent cats to form lines of three or more of the same cats
 2. Cats can only be swapped if they form matched lines
 3. The game ends when there are no more potential moves
-
-I intend for this game to be simple and calming.
 
 ## to do
 Currently, I have implemented the swapping, matching, and clearing functionalities (in a very non-optimised manner). I aim to optimise these and work on the algorithm that figures out whether there are any potential moves or not. 

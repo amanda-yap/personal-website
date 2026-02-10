@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPostLayout.astro
 title: "two sum"
 date: "2026-02-10"
-tags: ["projects", "leetcode"]
+tags: ["leetcode"]
 ---
 
 The one and only.
