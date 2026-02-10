@@ -14,8 +14,9 @@ export async function getStaticPaths() {
 const { tag } = Astro.params;
 const { posts } = Astro.props;
 const filteredPosts = posts.filter((post: any) => post.frontmatter.tags?.includes(tag));
+const sortedPosts = filteredPosts.sort((a: any, b: any) => Date.parse(b.frontmatter.date) - Date.parse(a.frontmatter.date));
 ---
 
 <Layout pageTitle={tag}>
-    <BlogPostsList posts={filteredPosts}/>
+    <BlogPostsList posts={sortedPosts}/>
 </Layout>
