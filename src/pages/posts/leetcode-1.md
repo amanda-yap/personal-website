@@ -25,16 +25,16 @@ class Solution:
         return []
 ```
 
-This solution has a time complexity of O(n^2) as we have to iterate through each integer in the array and get all its possible pairs. It has a constant space complexity since we use a fixed amount of memory.
+This solution has a time complexity of O(n^2) as we have to iterate through each integer in the array and iterate again to get all its possible pairs. It has a constant space complexity since we use a fixed amount of memory.
 
 
 ## optimised solution
 
-The more optimal solution (which I did not come up with) has a time complexity of O(n) and a space complexity of O(n). 
-
-First, we make a hash map to store integers and their corresponding indices in the given array. We iterate through the array to calculate the complement of each integer - what integer can we add to the current integer to make the sum equal the target?
+First, we make a hash map to store integers and their corresponding indices in the given array. We then iterate through the array to calculate the complement of each integer - what integer can we add to the current integer to make the sum equal the target?
 
 If this complement is in our hash map, we can return the index of the current integer and the index of the complement (stored in the hash map). Otherwise, we can put the current integer and its index into the hashmap so that it can be accessed later on as a potential complement to another integer in the array.
+
+This solution has a time complexity of O(n) since we only do one iteration, with a space complexity of O(n) for the hash map. 
 
 ```python
 class Solution:
@@ -50,3 +50,5 @@ class Solution:
 
         return []
 ```
+
+I did not come up with this optimal solution. I think the optimised solutions for leetcode problems are often quite unintuitive. They are definitely creative though and I'm hoping to idenitify more patterns when solving more problems.
