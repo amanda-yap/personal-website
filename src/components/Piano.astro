@@ -1,41 +1,77 @@
+---
+// layout config
+const layout = {
+    startX: 40,
+    whiteWidth: 38,
+    whiteHeight: 80,
+    whiteY: 80,
+    gap: 2,
+    blackWidth: 20,
+    blackHeight: 50,
+    blackX: [70, 110, 190, 230, 270],
+    blackY: 78
+};
+
+// notes
+const whiteNotes = ["C4", "D4", "E4", "F4", "G4", "A4", "B4"];
+const blackNotes = ["C#4", "D#4", "F#4", "G#4", "A#4"]
+---
 
 <svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg" class="lg:w-3/5">
     <!-- body -->
     <rect x="20" y="40" width="320" height="140" rx="18" fill="#B8C799"/>
-
-    <!-- top -->
     <rect x="20" y="40" width="320" height="20" rx="10" fill="#9BAA7C"/>
 
-    <!-- white keys when clicked + gap between keys -->
-    <rect x="40" y="80" width="278" height="80" fill="#C3C9C4"/>
+    <!-- white keys when clicked + gap between white keys -->
+    <rect
+        x={layout.startX}
+        y={layout.whiteY}
+        width={(layout.whiteWidth + layout.gap) * 7 - layout.gap}
+        height={layout.whiteHeight}
+        fill="#C3C9C4"
+    />
 
     <!-- white keys -->
     <g fill="#F3F3ED">
-        <rect x="40"  y="80" width="38" height="80" data-note="C4" class="white-key cursor-pointer"/>
-        <rect x="80"  y="80" width="38" height="80" data-note="D4" class="white-key cursor-pointer"/>
-        <rect x="120" y="80" width="38" height="80" data-note="E4" class="white-key cursor-pointer"/>
-        <rect x="160" y="80" width="38" height="80" data-note="F4" class="white-key cursor-pointer"/>
-        <rect x="200" y="80" width="38" height="80" data-note="G4" class="white-key cursor-pointer"/>
-        <rect x="240" y="80" width="38" height="80" data-note="A4" class="white-key cursor-pointer"/>
-        <rect x="280" y="80" width="38" height="80" data-note="B4" class="white-key cursor-pointer"/>
+        {whiteNotes.map((note, i) => (
+        <rect
+            x={layout.startX + i * (layout.whiteWidth + layout.gap)}
+            y={layout.whiteY}
+            width={layout.whiteWidth}
+            height={layout.whiteHeight}
+            data-note={note}
+            class="white-key cursor-pointer"
+        />
+        ))}
     </g>
 
     <!-- black keys when clicked -->
     <g fill="#1F3327">
-        <rect x="70"  y="78" width="20" height="50" rx="3" data-note="C#4" class="black-key cursor-pointer"/>
-        <rect x="110" y="78" width="20" height="50" rx="3" data-note="D#4" class="black-key cursor-pointer"/>
-        <rect x="190" y="78" width="20" height="50" rx="3" data-note="F#4" class="black-key cursor-pointer"/>
-        <rect x="230" y="78" width="20" height="50" rx="3" data-note="G#4" class="black-key cursor-pointer"/>
-        <rect x="270" y="78" width="20" height="50" rx="3" data-note="A#4" class="black-key cursor-pointer"/>
+        {blackNotes.map((note, i) => (
+        <rect
+            x={layout.blackX[i]}
+            y={layout.blackY}
+            width={layout.blackWidth}
+            height={layout.blackHeight}
+            rx="3"
+            class="black-key cursor-pointer"
+        />
+        ))}
     </g>
 
     <!-- black keys -->
     <g fill="#596849">
-        <rect x="70"  y="78" width="20" height="50" rx="3" data-note="C#4" class="black-key cursor-pointer"/>
-        <rect x="110" y="78" width="20" height="50" rx="3" data-note="D#4" class="black-key cursor-pointer"/>
-        <rect x="190" y="78" width="20" height="50" rx="3" data-note="F#4" class="black-key cursor-pointer"/>
-        <rect x="230" y="78" width="20" height="50" rx="3" data-note="G#4" class="black-key cursor-pointer"/>
-        <rect x="270" y="78" width="20" height="50" rx="3" data-note="A#4" class="black-key cursor-pointer"/>
+        {blackNotes.map((note, i) => (
+        <rect
+            x={layout.blackX[i]}
+            y={layout.blackY}
+            width={layout.blackWidth}
+            height={layout.blackHeight}
+            data-note={note}
+            rx="3"
+            class="black-key cursor-pointer"
+        />
+        ))}
     </g>
 </svg>
 

@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPostLayout.astro
 title: "match the cat"
 date: "2026-02-06"
-tags: ["projects"]
+tags: ["coding", "projects"]
 ---
 
 

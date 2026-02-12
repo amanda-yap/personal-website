@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPostLayout.astro
 title: "photos website"
 date: "2025-12-19"
-tags: ["projects"]
+tags: ["coding", "projects"]
 ---
 
 [Github repo](https://github.com/amanda-yap/my-photos)
