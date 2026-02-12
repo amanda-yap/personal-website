@@ -7,7 +7,6 @@ export async function getStaticPaths() {
 
 	return [
 		{params: {tag: "projects"}, props: {posts: allPosts}},
-		{params: {tag: "leetcode"}, props: {posts: allPosts}},
 	];
 }
 
