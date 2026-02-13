@@ -59,22 +59,22 @@ This was similarly done for the black keys. I stored their x values into an arra
 
 ## making the sound
 
-When a key is clicked, the corresponding note should be played. Here's how this was done for my piano, using the Web Audio API.
+When a key is clicked, the corresponding note should be played. Here's how this was done for my piano!
 
 
-First, we make an instance of the audio context so that we can get access to the API's features.
+First, we make an instance of an audio context so that we can get access to the Web Audio API's features.
 
 ```js
 const audioContext = new AudioContext();
 ```
 
-We then make a function that will play the note. This function will be called when a key is clicked; we will pass in the frequency and duration of the note as arguments.
+We then make the function that will play the note. This function will be called when a key is clicked; we will pass in the frequency and duration of the note as arguments.
 
 ```js
 function playTone(frequency, duration = 1) {}
 ```
 
-Within this function, we create an oscillator node to make the sound wave and a gain node to control the volume. We then connect them so that the oscillator sends the sound to the gain node, which then sends it to the output.
+Within this function, we can create an oscillator node to make the sound wave, and a gain node to control the volume. We then connect them so that the oscillator sends the sound to the gain node, which then sends it to the output.
 
 ```js
 const oscillator = audioContext.createOscillator();
@@ -84,14 +84,14 @@ oscillator.connect(gainNode);
 gainNode.connect(audioContext.destination);
 ```
 
-We can then set the type of sound wave we want and its frequency. A sine wave represents a pure tone, which I found suitable for a soft piano sound.
+We can then set the type of sound wave we want and its frequency. A sine wave represents a pure tone, which is suitable for a soft piano sound.
 
 ```js
 oscillator.type = 'sine';
 oscillator.frequency.value = frequency;
 ```
 
-Using the gain node, we can control the volume of the tone to make it sound more like a piano. I set the volume at 30% and decreased the volume over the duration of the tone (which I set to 1 second) by using an [exponential ramp](https://developer.mozilla.org/en-US/docs/Web/API/AudioParam/exponentialRampToValueAtTime) - an exponential decrease in volume sounds more natural to the human ears than a linear one. 
+Using the gain node, we can control the volume of the tone to make it sound more like a piano. I set the volume at 30% and decreased the volume over the duration of the tone (set to 1 second) by using an exponential ramp - an exponential decrease in volume sounds more natural to the human ears than a linear one. 
 
 Now, instead of a continuous tone, the note will be played and fade away, which is more akin to the sound of a piano!
         
