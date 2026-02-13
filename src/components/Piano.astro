@@ -34,43 +34,43 @@ const blackNotes = ["C#4", "D#4", "F#4", "G#4", "A#4"]
     <!-- white keys -->
     <g fill="#F3F3ED">
         {whiteNotes.map((note, i) => (
-        <rect
-            x={layout.startX + i * (layout.whiteWidth + layout.gap)}
-            y={layout.whiteY}
-            width={layout.whiteWidth}
-            height={layout.whiteHeight}
-            data-note={note}
-            class="white-key cursor-pointer"
-        />
+            <rect
+                x={layout.startX + i * (layout.whiteWidth + layout.gap)}
+                y={layout.whiteY}
+                width={layout.whiteWidth}
+                height={layout.whiteHeight}
+                data-note={note}
+                class="white-key cursor-pointer"
+            />
         ))}
     </g>
 
     <!-- black keys when clicked -->
     <g fill="#1F3327">
         {blackNotes.map((note, i) => (
-        <rect
-            x={layout.blackX[i]}
-            y={layout.blackY}
-            width={layout.blackWidth}
-            height={layout.blackHeight}
-            rx="3"
-            class="black-key cursor-pointer"
-        />
+            <rect
+                x={layout.blackX[i]}
+                y={layout.blackY}
+                width={layout.blackWidth}
+                height={layout.blackHeight}
+                rx="3"
+                class="black-key cursor-pointer"
+            />
         ))}
     </g>
 
     <!-- black keys -->
     <g fill="#596849">
         {blackNotes.map((note, i) => (
-        <rect
-            x={layout.blackX[i]}
-            y={layout.blackY}
-            width={layout.blackWidth}
-            height={layout.blackHeight}
-            data-note={note}
-            rx="3"
-            class="black-key cursor-pointer"
-        />
+            <rect
+                x={layout.blackX[i]}
+                y={layout.blackY}
+                width={layout.blackWidth}
+                height={layout.blackHeight}
+                data-note={note}
+                rx="3"
+                class="black-key cursor-pointer"
+            />
         ))}
     </g>
 </svg>
@@ -110,8 +110,7 @@ const blackNotes = ["C#4", "D#4", "F#4", "G#4", "A#4"]
         oscillator.frequency.value = frequency;
 
         gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-        gainNode.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + 0.01);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration);
 
         oscillator.start();
         oscillator.stop(audioContext.currentTime + duration);
