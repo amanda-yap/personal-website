@@ -8,7 +8,7 @@ tags: ["coding", "projects"]
 
 [Github repo](https://github.com/amanda-yap/cli-dashboard)
 
-I've been looking for a personal dashboard to help keep me organised and motivated. I wanted something simple, offline, easy to access, and nice to look at, but I couldn't quite find what I was looking for, so I decided to make my own.
+I've been looking for a personal dashboard to help keep me organised - something simple, offline, easy to access, and nice to look at. I couldn't quite find what I was looking for, so I decided to make my own.
 
 ![dashboard](/images/dashboard.png)
 

@@ -1,11 +1,11 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
-title: "making an online piano"
+title: "online piano"
 date: "2026-02-12"
 tags: ["coding"]
 ---
 
-For my home page, I wanted something that combined my interests, so I coded a piano. Here is the process of making it :)
+For my home page, I wanted something that combined my interests, so I coded a small piano. Here is the process of making it.
 
 ## making the svg
 Thankfully, a piano is not too hard to draw - it is just a bunch of rectangles! I tried to make the piano match the style of my website: minimalist, green, and sort of round.
@@ -54,12 +54,12 @@ const whiteNotes = ["C4", "D4", "E4", "F4", "G4", "A4", "B4"];
 </g>
 ```
 
-This was similarly done for the black keys. I stored their x values into an array instead of calculating them since the black keys are not evenly spaced; I found this sufficient since my piano is small.
+I did the same for the black keys but stored their x values into an array instead of calculating them since the black keys are not evenly spaced; I found this sufficient since my piano is small.
 
 
 ## making the sound
 
-When a key is clicked, the corresponding note should be played. Here's how this was done for my piano!
+When a key is clicked, the corresponding note should be played. Here's how this was done for my piano.
 
 
 First, we make an instance of an audio context so that we can get access to the Web Audio API's features.

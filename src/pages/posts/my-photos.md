@@ -8,7 +8,7 @@ tags: ["coding", "projects"]
 [Github repo](https://github.com/amanda-yap/my-photos)
 
 
-I used to post my photos on Instagram, but I no longer have Instagram, so I decided to make a website for my photos instead.
+I decided to make a website to display my photos.
 
 
 ![photos website](/images/photos-website.png)
