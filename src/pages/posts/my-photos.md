@@ -8,7 +8,7 @@ tags: ["coding", "projects"]
 [Github repo](https://github.com/amanda-yap/my-photos)
 
 
-I decided to make a website to display my photos.
+I decided to make a website to display my photos :D
 
 
 ![photos website](/images/photos-website.png)

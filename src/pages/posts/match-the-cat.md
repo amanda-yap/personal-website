@@ -20,6 +20,6 @@ Match the Cat is in its early stages of development. I am currently making it us
 3. The game ends when there are no potential moves
 
 ## to do
-Currently, I have implemented the swapping, matching, and clearing functionalities (in a very non-optimised manner). I aim to optimise these and work on the algorithm that figures out whether there are any potential moves or not. 
+I need to modularize the code, work on the main gain loop, and make the scoreboard.
 
 There's a lot more to work on, but this is just a fun project so I'm taking it slow :)
