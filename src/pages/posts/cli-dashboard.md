@@ -1,8 +1,8 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
 title: "cli dashboard"
-date: "2026-01-15"
-tags: ["coding", "projects"]
+tags: ["Python", "Rich"]
+cover_image: "/images/dashboard.png"
 ---
 
 

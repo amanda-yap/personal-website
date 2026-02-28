@@ -1,14 +1,14 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
 title: "photos website"
-date: "2025-12-19"
-tags: ["coding", "projects"]
+tags: ["Next.js", "TailwindCSS"]
+cover_image: "/images/photos-website.png"
 ---
 
 [Github repo](https://github.com/amanda-yap/my-photos)
 
 
-I decided to make a website to display my photos :D
+I decided to make a website to display my photos.
 
 
 ![photos website](/images/photos-website.png)
