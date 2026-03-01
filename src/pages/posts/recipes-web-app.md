@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../layouts/PostLayout.astro
 title: "recipes web app"
 tags: ["Python", "Flask", "Jinja", "MySQL"]
 description: "A full stack recipes portal."
