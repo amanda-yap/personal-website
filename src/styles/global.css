@@ -2,14 +2,13 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-    --bg-color: #F5F5DC;
-    --font-color: #384106;
-    --font-line-seed: "LINE Seed JP", sans-serif;
+    --bg-color: #131314;
+    --font-color: #d3d3d3;
+    --font-space: "Space Grotesk", sans-serif;
 }
 
 body {
 	background-color: var(--bg-color);
     color: var(--font-color);
-    font-family: var(--font-line-seed);
+    font-family: var(--font-space);
 }
-

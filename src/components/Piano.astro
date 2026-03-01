@@ -4,12 +4,12 @@ const layout = {
     startX: 40,
     whiteWidth: 38,
     whiteHeight: 80,
-    whiteY: 80,
+    whiteY: 70,
     gap: 2,
     blackWidth: 20,
     blackHeight: 50,
     blackX: [70, 110, 190, 230, 270],
-    blackY: 78
+    blackY: 68
 };
 
 // notes
@@ -17,10 +17,9 @@ const whiteNotes = ["C4", "D4", "E4", "F4", "G4", "A4", "B4"];
 const blackNotes = ["C#4", "D#4", "F#4", "G#4", "A#4"]
 ---
 
-<svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg" class="lg:w-3/5">
+<svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg" class="lg:w-4/7 md:w-4/7">
     <!-- body -->
-    <rect x="20" y="40" width="320" height="140" rx="18" fill="#B8C799"/>
-    <rect x="20" y="40" width="320" height="20" rx="10" fill="#9BAA7C"/>
+    <rect x="20" y="40" width="320" height="130" stroke="#313131" fill="#121212"/>
 
     <!-- white keys when clicked + gap between white keys -->
     <rect
@@ -46,21 +45,20 @@ const blackNotes = ["C#4", "D#4", "F#4", "G#4", "A#4"]
     </g>
 
     <!-- black keys when clicked -->
-    <g fill="#1F3327">
+    <g fill="#ABABAB">
         {blackNotes.map((note, i) => (
             <rect
                 x={layout.blackX[i]}
                 y={layout.blackY}
                 width={layout.blackWidth}
                 height={layout.blackHeight}
-                rx="3"
                 class="black-key cursor-pointer"
             />
         ))}
     </g>
 
     <!-- black keys -->
-    <g fill="#596849">
+    <g fill="#121212">
         {blackNotes.map((note, i) => (
             <rect
                 x={layout.blackX[i]}
@@ -68,7 +66,6 @@ const blackNotes = ["C#4", "D#4", "F#4", "G#4", "A#4"]
                 width={layout.blackWidth}
                 height={layout.blackHeight}
                 data-note={note}
-                rx="3"
                 class="black-key cursor-pointer"
             />
         ))}

@@ -1,16 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PostsList from '../components/PostsList.astro'
 import Piano from '../components/Piano.astro';
+const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
 
 const pageTitle = "amanda yap";
 ---
 
 <Layout pageTitle={pageTitle}>
 	<p>
-		Hello! I am a computer science and classical piano student who loves to make things.</a>
+		Computer science and classical piano student.</a>
 	</p>
 	<div class ="flex justify-center">
 		<Piano />
 	</div>
-	
+	<h2 class="text-2xl text-white my-6">projects</h2>
+	<PostsList posts={allPosts}/>
 </Layout>

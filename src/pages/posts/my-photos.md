@@ -1,15 +1,12 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
 title: "photos website"
-tags: ["Next.js", "TailwindCSS"]
+tags: ["Next.js", "React", "Typescript", "TailwindCSS"]
 cover_image: "/images/photos-website.png"
+description: "An interactive gallery to display my photos."
 ---
 
-[Github repo](https://github.com/amanda-yap/my-photos)
-
-
 I decided to make a website to display my photos.
-
 
 ![photos website](/images/photos-website.png)
 

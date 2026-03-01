@@ -5,32 +5,21 @@ const { posts } = Astro.props;
 
 <div class="grid gap-6 sm:grid-cols-1 lg:grid-cols-2">
   {posts.map((post) => (
-    <a href={post.url} class="group block">
-      <div class="h-full rounded-xl border border-lime-700/20 overflow-hidden hover:border-lime-700/50 transition-all duration-300">
-        
-        <div class="aspect-video overflow-hidden">
-            <img
-                src={post.frontmatter.cover_image}
-                alt={post.frontmatter.title}
-                class="w-full object-cover"
-            />
-        </div>
-
-        <div class="p-4 flex flex-col justify-between">
-            <div class="flex items-center justify-between">
-                <div>
-                    <h3 class="text-md mb-1 group-hover:text-lime-700 transition-colors">
-                    {post.frontmatter.title}
-                    </h3>
-                    <Tags tags = {post.frontmatter.tags}/>
-                </div>
-                <span class="text-lime-700 text-lg group-hover:translate-x-0.5 transition-transform duration-300">
-                ➜
-                </span>
-            </div>
-        </div>
-
-      </div>
-    </a>
+	<a href={post.url} class="group block">
+		<div class="h-full border border-stone-700/20 overflow-hidden hover:border-amber-500/30 transition-all duration-300">
+			<div class="flex items-center gap-4 p-5 overflow-hidden">
+				<div class="flex flex-col gap-4 overflow-hidden">
+					<h3 class="text-md text-white group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all">
+					{post.frontmatter.title}
+					</h3>
+					<p class="text-sm">{post.frontmatter.description}</p>
+					<Tags tags = {post.frontmatter.tags}/>
+				</div>
+				<span class="text-white-700 text-l group-hover:translate-x-0.5 group-hover:text-amber-400 transition-all duration-300">
+				➔
+				</span>
+			</div>
+		</div>
+	</a>
   ))}
 </div>

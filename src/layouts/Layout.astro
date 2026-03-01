@@ -1,7 +1,5 @@
 ---
 import "../styles/global.css";
-import Navigation from '../components/Navigation.astro';
-import Footer from '../components/Footer.astro';
 import Analytics from '@vercel/analytics/astro'
 const { pageTitle } = Astro.props;
 ---
@@ -13,22 +11,22 @@ const { pageTitle } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" href="/logo.png" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Amanda Yap. Computer Science Student. Pianist.">
 		<title>amanda yap</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 	</head>
 
-	<body class="max-w-2xl mx-8 mt-10 lg:mx-auto">
-		<Navigation />
+	<body class="max-w-3xl mx-8 mt-20 lg:mx-auto">
 		<main
 			id="page"
 			class="opacity-0 translate-y-2 transition-all duration-800 ease"
 			>
-			<h1 class="text-4xl mb-8 text-lime-800">{pageTitle}</h1>
+			<a href="/"><img src="/logo.png" class="w-10 hover:scale-105 transition-transform duration-300"></a>
+			<h1 class="text-4xl mt-3 mb-8 text-white">{pageTitle}</h1>
 			<slot />
 		</main>
-		<Footer />
 		<Analytics />
 
 		<script>
