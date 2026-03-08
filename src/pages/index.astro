@@ -1,8 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Hobbies from "../components/Hobbies.astro";
 import PostsList from '../components/PostsList.astro'
 import Piano from '../components/Piano.astro';
 import WorkTimeline from '../components/WorkTimeline.astro';
+import Footer from '../components/Footer.astro';
 const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
 
 const pageTitle = "amanda yap";
@@ -17,5 +19,7 @@ const pageTitle = "amanda yap";
 	</div>
 	<WorkTimeline />
 	<PostsList posts={allPosts}/>
+	<Hobbies />
+	<Footer />
 	
 </Layout>
