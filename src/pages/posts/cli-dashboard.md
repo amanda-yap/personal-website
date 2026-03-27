@@ -7,7 +7,6 @@ description: "A personal dashboard to keep you organised, run in the command lin
 
 [Github repo](https://github.com/amanda-yap/cli-dashboard)
 
-I made a personal dashboard that is run in the command line.
 
 ![dashboard](/images/dashboard.png)
 
