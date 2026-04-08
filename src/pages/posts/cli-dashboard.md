@@ -2,7 +2,7 @@
 layout: ../../layouts/PostLayout.astro
 title: "cli dashboard"
 tags: ["Python", "Rich"]
-description: "A personal dashboard to keep you organised, run in the command line."
+description: "A personal dashboard run in the command line."
 ---
 
 [Github repo](https://github.com/amanda-yap/cli-dashboard)
