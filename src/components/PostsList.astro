@@ -4,9 +4,9 @@ const { posts } = Astro.props;
 
 <div class="flex flex-col">
   {posts.map((post: any) => (
-	<a href={post.url} class="w-3/4">
+	<a href={post.url} class="lg:w-3/4 w-full">
 		<div class="h-full transition-all duration-300">
-			<div class="flex p-4 justify-between hover:bg-amber-950/10 transition-color duration-300">
+			<div class="flex p-4 justify-between hover:bg-lime-800/10 transition-color duration-300">
 				<h3 class="text-md">
 					{post.frontmatter.title}
 				</h3>
