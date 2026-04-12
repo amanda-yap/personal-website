@@ -13,11 +13,12 @@ const pageTitle = "explore";
 <Layout pageTitle={pageTitle}>
     <p>A collection of things I have created and consumed.</p>
 
+    <h2 class="text-2xl mt-15 mb-6 font-medium">currently</h2>
     <Hobbies />
 
-    <h2 class="text-2xl mt-15 mb-6 font-medium">things i've made</h2>
+    <h2 class="text-2xl mt-18 mb-6 font-medium">things i've made</h2>
     <PostsList posts={allProjects} />
 
-    <h2 class="text-2xl mt-15 mb-6 font-medium">things i've thought about</h2>
+    <h2 class="text-2xl mt-18 mb-6 font-medium">things i've thought about</h2>
     <Tags tags={tags} />
 </Layout>
