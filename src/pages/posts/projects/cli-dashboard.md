@@ -1,8 +1,7 @@
 ---
-layout: ../../layouts/PostLayout.astro
+layout: /src/layouts/PostLayout.astro
 title: "cli dashboard"
-tags: ["Python", "Rich"]
-description: "A personal dashboard run in the command line."
+tags: []
 ---
 
 [Github repo](https://github.com/amanda-yap/cli-dashboard)

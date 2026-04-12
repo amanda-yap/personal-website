@@ -1,11 +1,16 @@
 ---
 import Layout from './Layout.astro';
 import Prose from '../components/Prose.astro';
+import Tags from '../components/Tags.astro';
 
 const { frontmatter } = Astro.props;
 ---
 
 <Layout pageTitle={frontmatter.title}>
+    <div class="mb-8 flex-column gap-4 justify-between items-center">
+        <p class="text-sm">{frontmatter.pubDate}</p>
+        <Tags tags = {frontmatter.tags}/>
+    </div>
     <Prose>
         <slot />
     </Prose>
