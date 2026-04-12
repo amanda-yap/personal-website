@@ -2,11 +2,11 @@
 const { tags } = Astro.props;
 ---
 
-<div class="flex gap-2 flex-wrap">
+<div class="flex gap-2">
     {tags.map((tag) => 
-    <span
-        class="text-xs bg-stone-800/10 border-1 border-amber-500/30 px-2 py-1">
+    <a href={`/tags/${tag}`}
+        class="text-sm bg-lime-800/10 rounded-lg px-2 py-1 cursor-pointer hover:scale-103 transition ease-in-out duration-200">
         {tag}
-    </span>
+    </a>
     )}
 </div>

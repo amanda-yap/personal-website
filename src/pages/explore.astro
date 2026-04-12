@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PostsList from '../components/PostsList.astro';
+import Hobbies from '../components/Hobbies.astro';
+import Tags from '../components/Tags.astro';
+
+const allProjects = Object.values(import.meta.glob('./posts/projects/*.md', { eager: true }));
+const allPosts = Object.values(import.meta.glob('./posts/**/*.md', { eager: true }));
+const tags = [...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat())];
+const pageTitle = "explore";
+---
+
+<Layout pageTitle={pageTitle}>
+    <p>A collection of things I have created and consumed.</p>
+
+    <Hobbies />
+
+    <h2 class="text-2xl mt-15 mb-6 font-medium">things i've made</h2>
+    <PostsList posts={allProjects} />
+
+    <h2 class="text-2xl mt-15 mb-6 font-medium">things i've thought about</h2>
+    <Tags tags={tags} />
+</Layout>

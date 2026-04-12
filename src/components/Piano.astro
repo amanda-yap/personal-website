@@ -17,9 +17,9 @@ const whiteNotes = ["C4", "D4", "E4", "F4", "G4", "A4", "B4"];
 const blackNotes = ["C#4", "D#4", "F#4", "G#4", "A#4"]
 ---
 
-<svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg" class="lg:w-4/7 md:w-4/7">
+<svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg" class="lg:w-4/7 md:w-4/7 w-full">
     <!-- body -->
-    <rect x="20" y="40" width="320" height="130" stroke="#313131" fill="#121212"/>
+    <rect x="20" y="40" rx="3" width="320" height="130" fill="#74655A"/>
 
     <!-- white keys when clicked + gap between white keys -->
     <rect
@@ -27,11 +27,11 @@ const blackNotes = ["C#4", "D#4", "F#4", "G#4", "A#4"]
         y={layout.whiteY}
         width={(layout.whiteWidth + layout.gap) * 7 - layout.gap}
         height={layout.whiteHeight}
-        fill="#C3C9C4"
+        fill="#c9c5c3"
     />
 
     <!-- white keys -->
-    <g fill="#F3F3ED">
+    <g fill="#f7f5f2">
         {whiteNotes.map((note, i) => (
             <rect
                 x={layout.startX + i * (layout.whiteWidth + layout.gap)}
@@ -45,11 +45,12 @@ const blackNotes = ["C#4", "D#4", "F#4", "G#4", "A#4"]
     </g>
 
     <!-- black keys when clicked -->
-    <g fill="#ABABAB">
+    <g fill="#000000">
         {blackNotes.map((note, i) => (
             <rect
                 x={layout.blackX[i]}
                 y={layout.blackY}
+                rx="2"
                 width={layout.blackWidth}
                 height={layout.blackHeight}
                 class="black-key cursor-pointer"
@@ -58,11 +59,12 @@ const blackNotes = ["C#4", "D#4", "F#4", "G#4", "A#4"]
     </g>
 
     <!-- black keys -->
-    <g fill="#121212">
+    <g fill="#3d3423">
         {blackNotes.map((note, i) => (
             <rect
                 x={layout.blackX[i]}
                 y={layout.blackY}
+                rx="2"
                 width={layout.blackWidth}
                 height={layout.blackHeight}
                 data-note={note}
@@ -93,7 +95,7 @@ const blackNotes = ["C#4", "D#4", "F#4", "G#4", "A#4"]
 
     const audioContext = new AudioContext();
 
-    function playTone(frequency, duration = 1) {
+    function playTone(frequency: number, duration = 1) {
         if (!audioContext) {
             return;
         }
