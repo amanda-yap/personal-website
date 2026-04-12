@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PostsList from '../components/PostsList.astro';
+import Hobbies from '../components/Hobbies.astro';
+const allProjects = Object.values(import.meta.glob('./projects/*.md', { eager: true }));
+const pageTitle = "explore";
+---
+
+<Layout pageTitle={pageTitle}>
+<p>A collection of things I have created and consumed.</p>
+
+<Hobbies />
+<h2 class="text-2xl mt-15 mb-6 font-medium">things i've made</h2>
+<PostsList posts={allProjects} />
+</Layout>

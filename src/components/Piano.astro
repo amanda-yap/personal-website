@@ -17,9 +17,9 @@ const whiteNotes = ["C4", "D4", "E4", "F4", "G4", "A4", "B4"];
 const blackNotes = ["C#4", "D#4", "F#4", "G#4", "A#4"]
 ---
 
-<svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg" class="lg:w-4/7 md:w-4/7">
+<svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg" class="lg:w-4/7 md:w-4/7 w-full">
     <!-- body -->
-    <rect x="20" y="40" rx="3" width="320" height="130" fill="#52473a"/>
+    <rect x="20" y="40" rx="3" width="320" height="130" fill="#594d45"/>
 
     <!-- white keys when clicked + gap between white keys -->
     <rect
@@ -95,7 +95,7 @@ const blackNotes = ["C#4", "D#4", "F#4", "G#4", "A#4"]
 
     const audioContext = new AudioContext();
 
-    function playTone(frequency, duration = 1) {
+    function playTone(frequency: number, duration = 1) {
         if (!audioContext) {
             return;
         }

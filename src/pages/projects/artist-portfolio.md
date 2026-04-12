@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/PostLayout.astro
-title: "artist portfolio"
+title: "artist portfolio website"
 tags: ["Astro", "Javascript", "TailwindCSS"]
 description: "A portfolio website for an artist."
 ---
