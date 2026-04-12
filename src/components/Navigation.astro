@@ -1,0 +1,101 @@
+---
+const links = [
+  { name: "home", href: "/" },
+  { name: "work", href: "/about" },
+  { name: "hobbies", href: "/contact" },
+];
+---
+
+<nav class="relative">
+    <div class="mx-auto py-4 flex items-center justify-between">
+        <a href="/" class="text-2xl font-bold" id="logo">
+            amanda yap
+        </a>
+
+         <button
+            id="nav-open"
+            class="md:hidden text-3xl focus:outline-none cursor-pointer"
+            aria-label="Open menu"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+        <ul class="hidden md:flex gap-10">
+            {links.map(link => (
+                <li class="hover:scale-105 ease-in-out transition-transform duration-200">
+                    <a href={link.href}>
+                        {link.name}
+                    </a>
+                </li>
+            ))}
+        </ul>
+    </div>
+
+      <div
+        id="nav-overlay"
+        class="fixed inset-0 bg-black/40 opacity-0 pointer-events-none transition-opacity md:hidden"
+    ></div>
+
+    <aside
+        id="mobile-nav"
+        class="fixed top-0 right-0 h-full w-64 bg-stone-100 shadow-lg
+            translate-x-full transition-transform duration-300
+            md:hidden"
+    >
+ 
+        <div class="flex justify-between items-center p-6">
+            <span></span>
+            <button
+                id="nav-close"
+                class="text-2xl cursor-pointer"
+                aria-label="Close menu"
+            >
+                ✕
+            </button>
+        </div>
+
+        <ul class="flex flex-col gap-6 p-2 ml-8">
+        {links.map(link => (
+            <li>
+                <a
+                    href={link.href}
+                    class="block hover:scale-102 ease-in-out transition-transform duration-200"
+                >
+                    {link.name}
+                </a>
+            </li>
+        ))}
+        </ul>
+    </aside>
+</nav>
+
+
+<script>
+    const openBtn = document.getElementById("nav-open");
+    const closeBtn = document.getElementById("nav-close");
+    const mobileNav = document.getElementById("mobile-nav");
+    const overlay = document.getElementById("nav-overlay");
+
+    function openMenu() {
+        if (mobileNav && overlay) {
+            mobileNav.classList.remove("translate-x-full");
+            overlay.classList.remove("opacity-0", "pointer-events-none");
+            openBtn?.setAttribute("aria-expanded", "true");
+        }
+    }
+
+    function closeMenu() {
+        if (mobileNav && overlay) {
+            mobileNav.classList.add("translate-x-full");
+            overlay.classList.add("opacity-0", "pointer-events-none");
+            openBtn?.setAttribute("aria-expanded", "false");
+        }
+    }
+
+    openBtn?.addEventListener("click", openMenu);
+    closeBtn?.addEventListener("click", closeMenu);
+    overlay?.addEventListener("click", closeMenu);
+</script>
+
+  

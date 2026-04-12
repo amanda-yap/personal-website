@@ -2,13 +2,13 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-    --bg-color: #131314;
-    --font-color: #dbdbdb;
-    --font-space: "Space Grotesk", sans-serif;
+    --bg-color: #FFF8EC;
+    --font: "Libre Baskerville", serif;
+    --font-color: #3b3428;
 }
 
 body {
 	background-color: var(--bg-color);
     color: var(--font-color);
-    font-family: var(--font-space);
+    font-family: var(--font);
 }

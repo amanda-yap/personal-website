@@ -6,20 +6,10 @@ import Piano from '../components/Piano.astro';
 import WorkTimeline from '../components/WorkTimeline.astro';
 import Footer from '../components/Footer.astro';
 const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
-
-const pageTitle = "amanda yap";
 ---
 
-<Layout pageTitle={pageTitle}>
-	<p>
-		Computer science and classical piano student.</a>
-	</p>
-	<div class ="flex justify-center">
+<Layout>
+	<div class ="flex flex-col justify-center items-center">
 		<Piano />
 	</div>
-	<WorkTimeline />
-	<PostsList posts={allPosts}/>
-	<Hobbies />
-	<Footer />
-	
 </Layout>
