@@ -1,11 +1,11 @@
 ---
 layout: /src/layouts/PostLayout.astro
-title: "books i've read since the start of 2026"
+title: "books i read in jan and feb 2026"
 date: 2026-04-12
 tags: ["reading"]
 ---
 
-This is a test post.
+Test post.
 
 ## books i read in january
 1. The Iliad - Homer

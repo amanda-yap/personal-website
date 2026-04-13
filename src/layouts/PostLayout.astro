@@ -6,12 +6,6 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout pageTitle={frontmatter.title}>
-    <a
-        href="javascript:history.back()"
-        class="text-lime-800/80 text-md inline-block mb-8 hover:underline"
-    >
-        ← back
-    </a>
     <Prose>
         <slot />
     </Prose>
