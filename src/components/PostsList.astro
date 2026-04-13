@@ -1,9 +1,10 @@
 ---
 const { posts } = Astro.props;
+const sortedPosts = posts.sort((a: any, b: any) => Date.parse(b.frontmatter.date) - Date.parse(a.frontmatter.date));
 ---
 
 <div class="flex flex-col">
-  {posts.map((post: any) => (
+  {sortedPosts.map((post: any) => (
 	<a href={post.url} class="lg:w-3/4 w-full">
 		<div class="h-full transition-all duration-300 border-b border-stone-700/20">
 			<div class="flex p-4 justify-between items-center hover:bg-lime-800/10 transition-color duration-300">
@@ -11,7 +12,7 @@ const { posts } = Astro.props;
 					{post.frontmatter.title}
 				</h3>
 				<span class="text-lg">
-				➜
+				→
 				</span>
 			</div>
 		</div>

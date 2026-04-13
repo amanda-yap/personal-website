@@ -18,5 +18,11 @@ const { posts } = Astro.props;
 const filteredPosts = posts.filter((post: any) => post.frontmatter.tags?.includes(tag));
 ---
 <Layout pageTitle={tag}>
+       <a
+        href="javascript:history.back()"
+        class="text-lime-800/80 text-md inline-block mb-8 hover:underline"
+    >
+        ← back
+    </a>
     <PostsList posts={filteredPosts} />
 </Layout>

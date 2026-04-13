@@ -1,6 +1,7 @@
 ---
 layout: /src/layouts/PostLayout.astro
 title: "cli dashboard"
+date: 2026-03-01
 tags: []
 ---
 

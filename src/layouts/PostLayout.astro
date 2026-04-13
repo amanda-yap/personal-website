@@ -6,9 +6,12 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout pageTitle={frontmatter.title}>
-    <div class="mb-8 flex-column gap-4 justify-between items-center">
-        <p class="text-sm">{frontmatter.pubDate}</p>
-    </div>
+    <a
+        href="javascript:history.back()"
+        class="text-lime-800/80 text-md inline-block mb-8 hover:underline"
+    >
+        ← back
+    </a>
     <Prose>
         <slot />
     </Prose>

@@ -1,6 +1,7 @@
 ---
 layout: /src/layouts/PostLayout.astro
 title: "artist portfolio website"
+date: 2026-02-01
 tags: []
 ---
 

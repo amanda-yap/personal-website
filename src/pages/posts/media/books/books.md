@@ -1,6 +1,7 @@
 ---
 layout: /src/layouts/PostLayout.astro
 title: "what i've read since the start of 2026"
+date: 2026-04-12
 tags: ["books"]
 ---
 
@@ -8,7 +9,7 @@ This is a test post.
 
 ## books i read in january
 1. The Iliad - Homer
-2. The Great Gatsby - Scott Fitzgerald
+2. The Great Gatsby - Scott Fitzgerald (didn't really enjoy this one...)
 3. The Phantom of the Opera - Gaston Leroux
 
 ## books i read in february
