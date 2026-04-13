@@ -1,8 +1,8 @@
 ---
 layout: /src/layouts/PostLayout.astro
-title: "what i've read since the start of 2026"
+title: "books i've read since the start of 2026"
 date: 2026-04-12
-tags: ["books"]
+tags: ["reading"]
 ---
 
 This is a test post.
