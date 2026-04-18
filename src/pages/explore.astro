@@ -2,11 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import PostsList from '../components/PostsList.astro';
 import Hobbies from '../components/Hobbies.astro';
-import Tags from '../components/Tags.astro';
 
 const allProjects = Object.values(import.meta.glob('./posts/projects/*.md', { eager: true }));
-const allPosts = Object.values(import.meta.glob('./posts/**/*.md', { eager: true }));
-const tags = [...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat())];
 const pageTitle = "explore";
 ---
 
@@ -18,8 +15,4 @@ const pageTitle = "explore";
 
     <h2 class="text-2xl mt-18 mb-6 font-medium">things i've made</h2>
     <PostsList posts={allProjects} />
-
-    <h2 class="text-2xl mt-18 mb-6 font-medium">things i've enjoyed</h2>
-    <p class="text-sm my-3">note: there is no proper content here yet</p>
-    <Tags tags={tags} />
 </Layout>
