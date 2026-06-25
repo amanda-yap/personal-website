@@ -2,6 +2,7 @@
 layout: /src/layouts/PostLayout.astro
 title: "the piano on my home page"
 date: "2026-02-12"
+tags: []
 ---
 
 For my home page, I wanted something that combined my interests, so I coded a piano. Here is the process of making it :)
