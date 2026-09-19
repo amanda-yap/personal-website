@@ -36,6 +36,8 @@ const { pageTitle } = Astro.props;
 			window.addEventListener('load', () => {
 			document.getElementById('page')
 				?.classList.remove('opacity-0', 'translate-y-2')
+			document.activeElement instanceof HTMLElement
+				&& document.activeElement.blur();
 			})
 		</script>
 	</body>
