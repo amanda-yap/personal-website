@@ -24,19 +24,11 @@ const { pageTitle } = Astro.props;
 		<Navigation />
 		<main
 			id="page"
-			class="opacity-0 transition-all duration-800 ease"
 			>
 			<h1 class="text-3xl mt-8 mb-8 font-semibold">{pageTitle}</h1>
 			<slot />
 		</main>
 		<Footer />
 		<Analytics />
-
-		<script>
-			window.addEventListener('load', () => {
-			document.getElementById('page')
-				?.classList.remove('opacity-0')
-			})
-		</script>
 	</body>
 </html>
