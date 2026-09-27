@@ -5,7 +5,7 @@ date: 2026-03-01
 tags: []
 ---
 
-[Github repo](https://github.com/amanda-yap/cli-dashboard)
+[GitHub repo](https://github.com/amanda-yap/cli-dashboard)
 
 
 ![dashboard](/images/dashboard.png)

@@ -1,0 +1,57 @@
+---
+import type { PostSummary } from '../lib/posts';
+
+const { project } = Astro.props as { project: PostSummary };
+const live = project.links.find(l => l.label === "live");
+const fallback = live ? new URL(live.href).hostname.replace(/^www\./, "") : project.title;
+---
+
+<article class="panel group relative flex flex-col overflow-hidden hover:border-accent/40 transition-colors duration-300">
+    <div class="aspect-[16/10] bg-bg-2 border-b border-line overflow-hidden">
+        {project.image ? (
+            <img
+                src={project.image}
+                alt={project.imageAlt}
+                loading="lazy"
+                class="w-full h-full object-cover object-top"
+            />
+        ) : (
+            <div class="notebook w-full h-full grid place-items-center p-6">
+                <span class="hand text-3xl sm:text-4xl text-center -rotate-3">{fallback}</span>
+            </div>
+        )}
+    </div>
+
+    <div class="flex flex-col flex-1 p-5">
+        <div class="flex items-baseline justify-between gap-3">
+            <h3 class="font-semibold leading-snug">
+                <a href={project.url} class="after:absolute after:inset-0 group-hover:text-accent transition-colors duration-300">
+                    {project.title}
+                </a>
+            </h3>
+            <span class="text-sm italic text-muted shrink-0">{project.year}</span>
+        </div>
+
+        <div class="mt-auto pt-5 flex items-center gap-4 text-sm">
+            {project.links.map(link => (
+                <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="relative z-10 text-muted hover:text-accent transition-colors duration-200"
+                >
+                    {link.label} ↗
+                </a>
+            ))}
+            <span class="ml-auto text-accent group-hover:translate-x-1 transition-transform duration-300">read more →</span>
+        </div>
+    </div>
+</article>
+
+<style>
+    .notebook {
+        background-image:
+            linear-gradient(to right, transparent 2.2rem, color-mix(in srgb, var(--accent-2) 35%, transparent) 2.2rem, color-mix(in srgb, var(--accent-2) 35%, transparent) calc(2.2rem + 1px), transparent calc(2.2rem + 1px)),
+            repeating-linear-gradient(to bottom, transparent 0 27px, var(--line) 27px 28px);
+    }
+</style>

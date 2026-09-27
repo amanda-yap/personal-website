@@ -14,71 +14,98 @@ const layout = {
 
 // notes
 const whiteNotes = ["C4", "D4", "E4", "F4", "G4", "A4", "B4"];
-const blackNotes = ["C#4", "D#4", "F#4", "G#4", "A#4"]
+const whiteKeys = ["a", "s", "d", "f", "g", "h", "j"];
+const blackNotes = ["C#4", "D#4", "F#4", "G#4", "A#4"];
+const blackKeys = ["w", "e", "t", "y", "u"];
 ---
 
-<svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg" class="lg:w-4/7 md:w-4/7 w-full">
-    <!-- body -->
-    <rect x="20" y="40" rx="3" width="320" height="130" fill="#596951"/>
+<div class="piano relative w-full">
+    <svg viewBox="0 36 360 136" xmlns="http://www.w3.org/2000/svg" class="w-full overflow-visible">
+        <!-- body -->
+        <rect x="20" y="40" rx="6" width="320" height="130" class="piano-body"/>
 
-    <!-- white keys when clicked + gap between white keys -->
-    <rect
-        x={layout.startX}
-        y={layout.whiteY}
-        width={(layout.whiteWidth + layout.gap) * 7 - layout.gap}
-        height={layout.whiteHeight}
-        fill="#c9c5c3"
-    />
+        <!-- gap between white keys -->
+        <rect
+            x={layout.startX}
+            y={layout.whiteY}
+            width={(layout.whiteWidth + layout.gap) * 7 - layout.gap}
+            height={layout.whiteHeight}
+            class="piano-gap"
+        />
 
-    <!-- white keys -->
-    <g fill="#f7f5f2">
-        {whiteNotes.map((note, i) => (
-            <rect
-                x={layout.startX + i * (layout.whiteWidth + layout.gap)}
-                y={layout.whiteY}
-                width={layout.whiteWidth}
-                height={layout.whiteHeight}
-                data-note={note}
-                class="white-key cursor-pointer"
-            />
-        ))}
-    </g>
+        <!-- white keys -->
+        <g>
+            {whiteNotes.map((note, i) => (
+                <rect
+                    x={layout.startX + i * (layout.whiteWidth + layout.gap)}
+                    y={layout.whiteY}
+                    rx="2"
+                    width={layout.whiteWidth}
+                    height={layout.whiteHeight}
+                    data-note={note}
+                    data-key={whiteKeys[i]}
+                    class="white-key cursor-pointer"
+                />
+            ))}
+        </g>
 
-    <!-- black keys when clicked -->
-    <g fill="#000000">
-        {blackNotes.map((note, i) => (
-            <rect
-                x={layout.blackX[i]}
-                y={layout.blackY}
-                rx="2"
-                width={layout.blackWidth}
-                height={layout.blackHeight}
-                class="black-key cursor-pointer"
-            />
-        ))}
-    </g>
+        <!-- black keys -->
+        <g>
+            {blackNotes.map((note, i) => (
+                <rect
+                    x={layout.blackX[i]}
+                    y={layout.blackY}
+                    rx="2"
+                    width={layout.blackWidth}
+                    height={layout.blackHeight}
+                    data-note={note}
+                    data-key={blackKeys[i]}
+                    class="black-key cursor-pointer"
+                />
+            ))}
+        </g>
+    </svg>
+</div>
 
-    <!-- black keys -->
-    <g fill="#3d3423">
-        {blackNotes.map((note, i) => (
-            <rect
-                x={layout.blackX[i]}
-                y={layout.blackY}
-                rx="2"
-                width={layout.blackWidth}
-                height={layout.blackHeight}
-                data-note={note}
-                class="black-key cursor-pointer"
-            />
-        ))}
-    </g>
-</svg>
-
+<style>
+    .piano-body {
+        fill: var(--piano-body);
+        stroke: var(--piano-rim);
+        stroke-width: 1.6;
+    }
+    .piano-gap {
+        fill: var(--piano-gap);
+    }
+    .white-key {
+        fill: var(--piano-white);
+        transition: fill 250ms ease;
+    }
+    .black-key {
+        fill: var(--piano-black);
+        transition: fill 250ms ease;
+    }
+    @media (hover: hover) {
+        .white-key:hover {
+            fill: color-mix(in srgb, var(--piano-white) 92%, var(--muted));
+        }
+        .black-key:hover {
+            fill: color-mix(in srgb, var(--piano-black) 90%, var(--ink));
+        }
+    }
+    .white-key.pressed {
+        fill: color-mix(in srgb, var(--piano-white) 75%, var(--muted));
+        transition: none;
+    }
+    .black-key.pressed {
+        fill: color-mix(in srgb, var(--piano-black) 80%, var(--ink));
+        transition: none;
+    }
+</style>
 
 <script>
-    const keys = document.querySelectorAll('.white-key, .black-key');
+    const keys = document.querySelectorAll<SVGRectElement>('.white-key, .black-key');
 
-    const notes = {
+    const notes: Record<string, number> = {
         'C4': 261.63,
         'C#4': 277.18,
         'D4': 293.66,
@@ -99,6 +126,10 @@ const blackNotes = ["C#4", "D#4", "F#4", "G#4", "A#4"]
         if (!audioContext) {
             return;
         }
+        // safari starts the context suspended until a user gesture
+        if (audioContext.state === 'suspended') {
+            audioContext.resume();
+        }
         const oscillator = audioContext.createOscillator();
         const gainNode = audioContext.createGain();
 
@@ -115,14 +146,21 @@ const blackNotes = ["C#4", "D#4", "F#4", "G#4", "A#4"]
         oscillator.stop(audioContext.currentTime + duration);
     }
 
-    keys.forEach(key => {
-        key.addEventListener('click', () => {
-        const note = key.getAttribute('data-note');
-        if (note) {
-            playTone(notes[note]);
-            key.classList.add('opacity-80');
-            setTimeout(() => key.classList.remove('opacity-80'), 150);
-        }
-        });
+    function press(key: SVGRectElement) {
+        const note = key.dataset.note;
+        if (!note) return;
+        playTone(notes[note]);
+        key.classList.add('pressed');
+        setTimeout(() => key.classList.remove('pressed'), 150);
+    }
+
+    keys.forEach(key => key.addEventListener('click', () => press(key)));
+
+    // play with computer keys
+    const byKey = new Map([...keys].map(k => [k.dataset.key, k]));
+    document.addEventListener('keydown', (e) => {
+        if (e.repeat || e.metaKey || e.ctrlKey || e.altKey) return;
+        const key = byKey.get(e.key.toLowerCase());
+        if (key) press(key);
     });
 </script>

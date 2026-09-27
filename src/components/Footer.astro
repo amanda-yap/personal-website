@@ -4,11 +4,12 @@ const github = 'https://github.com/amanda-yap';
 const { year = new Date().getFullYear() } = Astro.props;
 ---
 
-<footer class="text-stone-500 pt-25">
-  <div class="container mx-auto px-4 flex justify-between items-center">
-    <p class="text-sm">&copy; {year} Amanda Yap.</p>
-     <a href={github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-        <Github size={24} class="hover:scale-105 transition-transform duration-300"/>
+<footer class="mt-24 pt-6 border-t border-line text-sm text-muted">
+  <div class="flex justify-between items-center gap-4">
+    <p>&copy; {year} Amanda Yap.</p>
+    <a href={github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="hover:text-accent transition-colors duration-200">
+      <Github size={20} />
     </a>
   </div>
 </footer>
+

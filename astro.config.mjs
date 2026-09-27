@@ -6,6 +6,9 @@ import path from 'path';
 
 // https://astro.build/config
 export default defineConfig({
+    redirects: {
+        '/posts/projects/website-piano': '/posts/blog/website-piano',
+    },
     vite: {
         plugins: [tailwindcss()],
         resolve: {
@@ -16,7 +19,7 @@ export default defineConfig({
     },
     markdown: {
         shikiConfig: {
-            theme: 'everforest-dark'
+            theme: 'rose-pine'
         },
         rehypePlugins: [
             [

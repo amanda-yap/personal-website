@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PostsList from '../components/PostsList.astro';
+
+const posts = Object.values(import.meta.glob('./posts/blog/*.md', { eager: true }));
+---
+
+<Layout pageTitle="blog">
+    <PostsList posts={posts} />
+</Layout>
