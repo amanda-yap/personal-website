@@ -1,20 +1,23 @@
 ---
 const { posts } = Astro.props;
 const sortedPosts = posts.sort((a: any, b: any) => Date.parse(b.frontmatter.date) - Date.parse(a.frontmatter.date));
+const fmtDate = (d: string) =>
+	new Date(d).toLocaleDateString("en-NZ", { month: "short", year: "numeric" }).toLowerCase();
 ---
 
-<div class="flex flex-col">
+<div class="flex flex-col border-t border-line">
   {sortedPosts.map((post: any) => (
-	<a href={post.url} class="lg:w-3/4 w-full">
-		<div class="h-full transition-all duration-300 border-b border-stone-700/20">
-			<div class="flex p-4 justify-between items-center hover:bg-lime-800/10 transition-color duration-300">
-				<h3 class="text-md">
-					{post.frontmatter.title}
-				</h3>
-				<span class="text-lg">
+	<a href={post.url} class="group border-b border-line">
+		<div class="flex items-baseline gap-4 py-4">
+			<h3 class="flex-1 group-hover:text-accent transition-colors duration-300">
+				{post.frontmatter.title}
+			</h3>
+			{post.frontmatter.date && (
+				<span class="hidden sm:inline text-sm text-muted">{fmtDate(post.frontmatter.date)}</span>
+			)}
+			<span class="text-lg group-hover:translate-x-1 transition-transform duration-300">
 				→
-				</span>
-			</div>
+			</span>
 		</div>
 	</a>
   ))}

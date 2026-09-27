@@ -7,7 +7,7 @@ tags: []
 
 [Live deployment](https://threebodysim.vercel.app)
 
-[Github repo](https://github.com/amanda-yap/three-body-problem)
+[GitHub repo](https://github.com/amanda-yap/three-body-problem)
 
 
 ![Butterfly III](/images/butterfly3.gif)

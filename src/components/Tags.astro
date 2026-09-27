@@ -5,8 +5,8 @@ const { tags } = Astro.props;
 <div class="flex gap-2">
     {tags.map((tag: any) => 
     <a href={`/tags/${tag}`}
-        class="text-sm bg-lime-800/10 rounded-lg px-2 py-1 cursor-pointer hover:scale-103 transition ease-in-out duration-200">
-        {tag}
+        class="text-sm bg-accent-2/10 rounded-lg px-2 py-1 hover:text-accent hover:bg-accent/10 transition-colors duration-200">
+        #{tag}
     </a>
     )}
 </div>

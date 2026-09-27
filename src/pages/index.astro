@@ -1,11 +1,47 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Piano from '../components/Piano.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { getPosts } from '../lib/posts';
+
+const projects = getPosts(import.meta.glob('./posts/projects/*.md', { eager: true })).slice(0, 4);
+const github = 'https://github.com/amanda-yap';
 ---
 
 <Layout>
-	<div class ="flex flex-col items-center justify-center mt-25">
-		<p class="text-lg">Welcome to my corner of the web.</p>
-		<Piano />
-	</div>
+	<section class="grid md:grid-cols-[1.1fr_1fr] gap-14 md:gap-12 items-center mt-2 md:mt-8">
+		<div>
+			<p class="hand text-3xl -rotate-2 origin-left mb-5">hello, i'm amanda!</p>
+			<div class="space-y-4 leading-relaxed max-w-xl">
+				<p>I'm a computer science and classical piano student.</p>
+				<p>I like to build thoughtful things. When I'm not coding, I'm usually playing the piano, reading, or watching a movie.</p>
+			</div>
+		</div>
+
+		<div class="flex flex-col items-center md:items-end">
+			<div class="w-full max-w-sm">
+				<div class="flex items-start justify-end gap-1 mb-3 pointer-events-none">
+					<svg class="w-8 h-6 mt-3 text-accent shrink-0" viewBox="0 0 44 36" stroke-width="2" aria-hidden="true">
+						<path class="doodle" d="M40 6 C28 4 14 10 9 30" />
+						<path class="doodle" d="M3 24 L9 31 L15 25" />
+					</svg>
+					<p class="hand rotate-1">play a tune ♪</p>
+				</div>
+				<Piano />
+			</div>
+		</div>
+	</section>
+
+	<section id="projects" class="mt-24 scroll-mt-10">
+		<div class="flex items-baseline justify-between mb-6">
+			<h2 class="text-2xl text-accent">projects</h2>
+			<a href="/projects" class="text-sm text-muted hover:text-accent transition-colors duration-200">all projects →</a>
+		</div>
+		<div class="grid sm:grid-cols-2 gap-5">
+			{projects.map(project => <ProjectCard project={project} />)}
+		</div>
+	</section>
+
+
+	<p class="hand text-center mt-20 -mb-8 -rotate-2">thanks for stopping by!</p>
 </Layout>

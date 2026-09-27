@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Navigation from '../components/Navigation.astro';
 import Analytics from '@vercel/analytics/astro'
 import Footer from '../components/Footer.astro';
+import FairyLights from '../components/FairyLights.astro';
 const { pageTitle } = Astro.props;
 ---
 
@@ -11,21 +12,28 @@ const { pageTitle } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" href="/logo.png" />
+		<link rel="icon" href="/logo.svg" type="image/svg+xml" />
+		<link rel="icon" href="/logo.png" type="image/png" />
+		<link rel="apple-touch-icon" href="/logo.png" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content="Amanda Yap. Computer Science Student. Pianist.">
 		<title>amanda yap</title>
+		<meta name="theme-color" content="#13100e" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400..700&family=Gaegu:wght@700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 	</head>
 
-	<body class="max-w-3xl mx-8 mt-18 mb-20 lg:mx-auto">
+	<body class="max-w-4xl mx-6 sm:mx-8 pt-24 sm:pt-28 pb-10 lg:mx-auto flex flex-col">
+		<div class="atmosphere" aria-hidden="true"></div>
+		<FairyLights />
 		<Navigation />
-		<main
-			id="page"
-			>
-			<h1 class="text-3xl mt-8 mb-8 font-semibold">{pageTitle}</h1>
+		<main id="page" class="flex-1">
+			{pageTitle && (
+				<header class="mt-2 mb-10">
+					<h1 class="text-3xl font-semibold text-accent">{pageTitle}</h1>
+				</header>
+			)}
 			<slot />
 		</main>
 		<Footer />

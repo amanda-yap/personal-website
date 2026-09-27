@@ -1,66 +1,84 @@
 ---
 const links = [
   { name: "home", href: "/" },
-  { name: "work", href: "/work" },
-  { name: "explore", href: "/explore" },
+  { name: "projects", href: "/projects", also: "/posts/projects" },
+  { name: "blog", href: "/blog", also: "/posts/blog" },
 ];
+
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const isActive = (href: string) => {
+    const link = links.find(l => l.href === href);
+    if (href === "/") return path === "/";
+    return path.startsWith(href) || (!!link?.also && path.startsWith(link.also));
+};
 ---
 
 <nav class="relative mb-10">
-    <div class="mx-auto pb-4 flex items-center justify-between">
-        <a href="/" class="text-2xl font-bold" id="logo">
+    <div class="mx-auto pb-5 flex items-center justify-between border-b border-line">
+        <a href="/" class="font-name text-[2.1rem] leading-none font-bold hover:text-accent transition-colors duration-200" id="logo">
             amanda yap
         </a>
 
-         <button
-            id="nav-open"
-            class="md:hidden text-3xl focus:outline-none cursor-pointer"
-            aria-label="Open menu"
-            aria-expanded="false"
-        >
-            ☰
-        </button>
+        <div class="flex items-center">
+            <ul class="hidden md:flex gap-8">
+                {links.map(link => (
+                    <li>
+                        <a
+                            href={link.href}
+                            class:list={[
+                                "py-1 transition-colors duration-200 hover:text-accent",
+                                isActive(link.href) ? "text-accent" : "text-ink",
+                            ]}
+                            aria-current={isActive(link.href) ? "page" : undefined}
+                        >
+                            {link.name}
+                        </a>
+                    </li>
+                ))}
+            </ul>
 
-        <ul class="hidden md:flex gap-10">
-            {links.map(link => (
-                <li class="hover:scale-105 ease-in-out transition-transform duration-200">
-                    <a href={link.href}>
-                        {link.name}
-                    </a>
-                </li>
-            ))}
-        </ul>
+            <button
+                id="nav-open"
+                class="md:hidden grid place-items-center w-9 h-9 -mr-2 text-xl cursor-pointer hover:text-accent transition-colors duration-200"
+                aria-label="Open menu"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+        </div>
     </div>
 
-      <div
+    <div
         id="nav-overlay"
-        class="fixed inset-0 bg-black/30 opacity-0 pointer-events-none transition-opacity md:hidden"
+        class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none transition-opacity md:hidden z-40"
     ></div>
 
     <aside
         id="mobile-nav"
-        class="fixed top-0 right-0 h-full w-64 bg-orange-50 shadow-lg
+        class="fixed top-0 right-0 h-full w-64 bg-bg-2 border-l border-line
             translate-x-full transition-transform duration-300
             z-50 md:hidden"
     >
- 
         <div class="flex justify-between items-center p-6 mt-4">
             <span></span>
             <button
                 id="nav-close"
-                class="text-2xl cursor-pointer mr-4"
+                class="text-xl cursor-pointer mr-2"
                 aria-label="Close menu"
             >
                 ✕
             </button>
         </div>
 
-        <ul class="flex flex-col gap-8 p-2 ml-8">
+        <ul class="flex flex-col gap-7 p-2 ml-8">
         {links.map(link => (
             <li>
                 <a
                     href={link.href}
-                    class="block hover:scale-102 ease-in-out transition-transform duration-200"
+                    class:list={[
+                        "block hover:text-accent transition-colors duration-200",
+                        isActive(link.href) && "text-accent",
+                    ]}
                 >
                     {link.name}
                 </a>
@@ -69,7 +87,6 @@ const links = [
         </ul>
     </aside>
 </nav>
-
 
 <script>
     const openBtn = document.getElementById("nav-open");
@@ -96,6 +113,8 @@ const links = [
     openBtn?.addEventListener("click", openMenu);
     closeBtn?.addEventListener("click", closeMenu);
     overlay?.addEventListener("click", closeMenu);
-</script>
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+    });
 
-  
+</script>

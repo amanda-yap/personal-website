@@ -1,0 +1,51 @@
+---
+const width = 1200;
+const span = 240;      // width of each droop
+const top = 6;         // where the wire is pinned
+const sag = 50;        // how low the control point pulls it
+
+const droops = Array.from({ length: width / span }, (_, i) => i * span);
+
+// a point on the quadratic curve between two pins
+const at = (x0: number, t: number) => ({
+    x: x0 + span * t,
+    y: (1 - t) ** 2 * top + 2 * t * (1 - t) * sag + t ** 2 * top,
+});
+
+const colours = ["var(--accent)", "var(--accent-2)", "var(--ink)"];
+const bulbs = droops.flatMap((x0, i) =>
+    [0.22, 0.5, 0.78].map((t, j) => ({
+        ...at(x0, t),
+        colour: colours[(i + j) % colours.length],
+        delay: `${((i * 3 + j) * 0.7) % 4}s`,
+        tilt: (t - 0.5) * -40,
+    }))
+);
+
+const wire = droops.map(x0 => `M${x0} ${top} Q${x0 + span / 2} ${sag} ${x0 + span} ${top}`).join(" ");
+---
+
+<svg
+    class="absolute top-0 left-0 w-full h-14 text-muted pointer-events-none"
+    viewBox={`0 0 ${width} 64`}
+    preserveAspectRatio="xMidYMin slice"
+    aria-hidden="true"
+>
+    <path d={wire} class="doodle" stroke-width="1.2" />
+    {bulbs.map(b => (
+        <g transform={`translate(${b.x} ${b.y}) rotate(${b.tilt}) scale(1.4)`}>
+            <path d="M-1.8 0 L1.8 0 L1.6 3.2 L-1.6 3.2 Z" class="doodle" stroke-width="1" />
+            <path
+                d="M0 3.4 C3.6 4.2 4.2 9 2.6 11 C1.6 12.4 -1.6 12.4 -2.6 11 C-4.2 9 -3.6 4.2 0 3.4 Z"
+                class="bulb doodle-anim"
+                style={`fill: ${b.colour}; animation-delay: ${b.delay}`}
+            />
+        </g>
+    ))}
+</svg>
+
+<style>
+    .bulb {
+        animation: twinkle 4s ease-in-out infinite;
+    }
+</style>
