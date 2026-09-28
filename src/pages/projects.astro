@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { getPosts } from '../lib/posts';
 
-const projects = getPosts(import.meta.glob('./posts/projects/*.md', { eager: true }));
+const projects = getPosts(import.meta.glob('./projects/*.md', { eager: true }));
 ---
 
 <Layout pageTitle="projects">

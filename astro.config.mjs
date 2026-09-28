@@ -7,7 +7,8 @@ import path from 'path';
 // https://astro.build/config
 export default defineConfig({
     redirects: {
-        '/posts/projects/website-piano': '/posts/blog/website-piano',
+        '/posts/projects/cli-dashboard': '/projects/cli-dashboard',
+        '/posts/projects/three-body': '/projects/three-body',
     },
     vite: {
         plugins: [tailwindcss()],

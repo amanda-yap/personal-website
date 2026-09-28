@@ -4,7 +4,7 @@ import Piano from '../components/Piano.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { getPosts } from '../lib/posts';
 
-const projects = getPosts(import.meta.glob('./posts/projects/*.md', { eager: true })).slice(0, 4);
+const projects = getPosts(import.meta.glob('./projects/*.md', { eager: true })).slice(0, 4);
 const github = 'https://github.com/amanda-yap';
 ---
 
